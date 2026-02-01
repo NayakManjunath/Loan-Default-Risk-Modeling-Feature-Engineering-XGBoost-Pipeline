@@ -98,93 +98,9 @@ else:
         "This section is optional."
     )
 
-# --------------------------------------------------
-# # 6. Individual Prediction Explanations
-# # --------------------------------------------------
-# st.header("6. Individual Prediction Explanations")
-
-# force_plots = sorted(
-#     glob.glob(os.path.join(ARTIFACTS_DIR, "shap_force_row_*.png"))
-# )
-
-# if force_plots:
-#     for img_path in force_plots[:3]:
-#         st.image(
-#             Image.open(img_path),
-#             use_container_width=True
-#         )
-# else:
-#     st.info("No individual SHAP force plots found.")
 
 # --------------------------------------------------
 # Footer
 # --------------------------------------------------
 st.divider()
 st.caption("Artifacts loaded from /artifacts")
-
-
-
-# import streamlit as st
-# import pandas as pd
-# from PIL import Image
-# import glob
-# import os
-# st.set_page_config(
-#     page_title="Credit Default Model – Explainability",
-#     layout="wide"
-# )
-
-# st.title("📊 Credit Default Model – SHAP Explainability")
-
-# # ---------- Model Summary ----------
-# st.header("1. Model Summary")
-
-# col1, col2, col3 = st.columns(3)
-# col1.metric("Model", "XGBoost")
-# col2.metric("Problem Type", "Binary Classification")
-# col3.metric("Target", "Default")
-
-# # ---------- Global SHAP ----------
-# st.header("2. Global Feature Importance (SHAP)")
-
-# summary_img = Image.open("artifacts/shap_summary.png")
-# st.image(summary_img, caption="Global SHAP Summary", use_container_width=True)
-
-# # ---------- Feature Importance Table ----------
-# st.header("3. Top Driving Features")
-
-# imp_df = pd.read_csv("artifacts/shap_feature_importance.csv")
-# st.dataframe(imp_df, use_container_width=True)
-
-# # ---------- Dependence Plots ----------
-# st.header("4. Feature Behavior")
-
-# dep_plots = sorted(glob.glob("artifacts/shap_dependence_*.png"))
-
-# cols = st.columns(2)
-# for i, img_path in enumerate(dep_plots[:6]):
-#     with cols[i % 2]:
-#         st.image(Image.open(img_path), use_container_width=True)
-
-# # ---------- Default Class Explanation ----------
-# st.header("5. Drivers of Default Risk")
-
-# pos_img = Image.open("artifacts/shap_dependence_{feature}.png")
-# st.image(
-#     pos_img,
-#     caption="SHAP Summary – Default Class",
-#     use_container_width=True
-# )
-
-
-# # ---------- Individual Explanations ----------
-# st.header("6. Individual Prediction Explanations")
-
-# force_plots = sorted(glob.glob("artifacts/shap_force_row_*.png"))
-
-# for img in force_plots[:3]:
-#     st.image(Image.open(img), use_container_width=True)
-
-# # ---------- Footer ----------
-# st.divider()
-# st.caption("Artifacts loaded from /artifacts | Model version v1.0")
